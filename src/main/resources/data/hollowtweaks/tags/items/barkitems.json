@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "hollowtweaks:oak_bark",
+    "hollowtweaks:dark_oak_bark",
+    "hollowtweaks:birch_bark",
+    "hollowtweaks:spruce_bark",
+    "hollowtweaks:jungle_bark",
+    "hollowtweaks:acacia_bark",
+    "hollowtweaks:mangrove_bark",
+    "hollowtweaks:cherry_bark",
+    "hollowtweaks:crimson_bark",
+    "hollowtweaks:warped_bark"
+  ]
+}
