@@ -49,6 +49,7 @@ public class BetterApple extends Item {
                     player.playSound(SoundEvents.ENTITY_GENERIC_EAT, 1, 1);
                     if (!world.isClient) {
                         (player).getHungerManager().add(3, 1.5F);
+                        usedItem.decrement(1);
                         player.giveItemStack(new ItemStack(APPLE_1));
                         return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                     }
@@ -61,6 +62,7 @@ public class BetterApple extends Item {
                     player.playSound(SoundEvents.ENTITY_GENERIC_EAT, 1, 1);
                     if (!world.isClient) {
                         (player).getHungerManager().add(3, 1.5F);
+                        usedItem.decrement(1);
                         player.giveItemStack(new ItemStack(APPLE_2));
                         return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                     }
@@ -73,6 +75,7 @@ public class BetterApple extends Item {
                     player.playSound(SoundEvents.ENTITY_GENERIC_EAT, 1, 1);
                     if (!world.isClient) {
                         (player).getHungerManager().add(3, 1.5F);
+                        usedItem.decrement(1);
                         player.giveItemStack(new ItemStack(APPLE_3));
                         return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                     }
@@ -85,6 +88,7 @@ public class BetterApple extends Item {
                     player.playSound(SoundEvents.ENTITY_GENERIC_EAT, 1, 1);
                     if (!world.isClient) {
                         (player).getHungerManager().add(3, 1.5F);
+                        usedItem.decrement(1);
                         player.giveItemStack(new ItemStack(APPLE_CORE));
                         return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                     }

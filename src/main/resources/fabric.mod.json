@@ -1,15 +1,15 @@
 {
 	"schemaVersion": 1,
 	"id": "hollowtweaks",
-	"version": "2.0.0",
+	"version": "2.2.0_1.20.4",
 	"name": "Hollow's Tweaks",
 	"description": "A few tweaks for survival minecraft my friend came up with!",
 	"authors": [
 		"bency"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/hollows-tweaks",
+		"sources": "https://github.com/bency-mods/Hollows_Tweaks"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/hollowtweaks/icon.png",
