@@ -10,6 +10,12 @@
   "item.hollowtweaks.warped_bark": "Warped Bark",
   "item.hollowtweaks.spruce_bark": "Spruce Bark",
 
+  "item.hollowtweaks.hollow_apple": "Apple",
+  "item.hollowtweaks.apple_1": "Partially Eaten Apple",
+  "item.hollowtweaks.apple_2": "Half Eaten Apple",
+  "item.hollowtweaks.apple_3": "Mostly Eaten Apple",
+  "item.hollowtweaks.apple_core": "Apple Core",
+
   "item.hollowtweaks.honey_splodge": "Honey Splodge",
   "item.hollowtweaks.ender_vase": "Ender Vase"
 }
