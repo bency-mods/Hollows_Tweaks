@@ -16,5 +16,7 @@ public class HollowsTweaks implements ModInitializer {
 		LOGGER.info("BarkItems initialized.");
 		BetterApple.BetterAppleInitialize();
 		LOGGER.info("BetterApple initialized.");
+		LOGGER.info("Hollow's Tweaks is fully loaded!");
+
 	}
 }
