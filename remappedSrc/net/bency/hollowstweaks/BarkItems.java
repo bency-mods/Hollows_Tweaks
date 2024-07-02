@@ -1,6 +1,7 @@
 package net.bency.hollowstweaks;
 
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.block.Blocks;
@@ -17,30 +18,30 @@ public class BarkItems extends Item {
         super(settings);
     }
 
-    public static final Item OAK_BARK = new Item(new Item.Settings());
-    public static final Item DARK_OAK_BARK = new Item(new Item.Settings());
-    public static final Item BIRCH_BARK = new Item(new Item.Settings());
-    public static final Item SPRUCE_BARK = new Item(new Item.Settings());
-    public static final Item JUNGLE_BARK = new Item(new Item.Settings());
-    public static final Item ACACIA_BARK = new Item(new Item.Settings());
-    public static final Item MANGROVE_BARK = new Item(new Item.Settings());
-    public static final Item CHERRY_BARK = new Item(new Item.Settings());
-    public static final Item CRIMSON_BARK = new Item(new Item.Settings());
-    public static final Item WARPED_BARK = new Item(new Item.Settings());
+    public static final Item OAK_BARK = new Item(new FabricItemSettings());
+    public static final Item DARK_OAK_BARK = new Item(new FabricItemSettings());
+    public static final Item BIRCH_BARK = new Item(new FabricItemSettings());
+    public static final Item SPRUCE_BARK = new Item(new FabricItemSettings());
+    public static final Item JUNGLE_BARK = new Item(new FabricItemSettings());
+    public static final Item ACACIA_BARK = new Item(new FabricItemSettings());
+    public static final Item MANGROVE_BARK = new Item(new FabricItemSettings());
+    public static final Item CHERRY_BARK = new Item(new FabricItemSettings());
+    public static final Item CRIMSON_BARK = new Item(new FabricItemSettings());
+    public static final Item WARPED_BARK = new Item(new FabricItemSettings());
 
 
 
     public static void BarkItemsInitialize(){
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","oak_bark"), OAK_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","dark_oak_bark"), DARK_OAK_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","birch_bark"), BIRCH_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","spruce_bark"), SPRUCE_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","jungle_bark"), JUNGLE_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","acacia_bark"), ACACIA_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","mangrove_bark"), MANGROVE_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","cherry_bark"), CHERRY_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","crimson_bark"), CRIMSON_BARK);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","warped_bark"), WARPED_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","oak_bark"), OAK_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","dark_oak_bark"), DARK_OAK_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","birch_bark"), BIRCH_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","spruce_bark"), SPRUCE_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","jungle_bark"), JUNGLE_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","acacia_bark"), ACACIA_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","mangrove_bark"), MANGROVE_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","cherry_bark"), CHERRY_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","crimson_bark"), CRIMSON_BARK);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks","warped_bark"), WARPED_BARK);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
             content.add(OAK_BARK);

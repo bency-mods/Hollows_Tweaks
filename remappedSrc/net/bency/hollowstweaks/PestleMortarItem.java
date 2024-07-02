@@ -1,8 +1,8 @@
 package net.bency.hollowstweaks;
 
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -16,12 +16,13 @@ public class PestleMortarItem extends Item {
         super(settings);
     }
 
-    public static final Item PESTLE_AND_MORTAR = new Item(new Item.Settings().maxDamage(256));
+    public static final Item PESTLE_AND_MORTAR = new Item(new FabricItemSettings().maxDamage(256));
 
 
 
     public static void PestleMortarInitialize(){
-        Registry.register(Registries.ITEM,Identifier.of("hollowtweaks","pestle_and_mortar"),PESTLE_AND_MORTAR);
+        Registry.register(Registries.ITEM,new Identifier
+                ("hollowtweaks","pestle_and_mortar"),PESTLE_AND_MORTAR);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
             content.add(PESTLE_AND_MORTAR);
         });
@@ -34,43 +35,43 @@ public class PestleMortarItem extends Item {
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.SAND,4));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
                 if (player.getOffHandStack().getItem() == Items.STONE){
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.COBBLESTONE,1));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
                 if (player.getOffHandStack().getItem() == Items.COBBLESTONE){
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.GRAVEL,1));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
                 if (player.getOffHandStack().getItem() == Items.GRAVEL){
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.SAND,1));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
                 if (player.getOffHandStack().getItem() == Items.CACTUS){
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.GREEN_DYE,1));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
-                if ((player.getOffHandStack().getItem() == Items.SHORT_GRASS) |
+                if ((player.getOffHandStack().getItem() == Items.GRASS) |
                         (player.getOffHandStack().getItem() == Items.TALL_GRASS)){
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.LIME_DYE,1));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
                 if ((player.getOffHandStack().getItem() == Items.COAL) |
@@ -78,7 +79,7 @@ public class PestleMortarItem extends Item {
                     player.getOffHandStack().decrement(1);
                     player.giveItemStack(new ItemStack(Items.GUNPOWDER,4));
                     player.playSound(SoundEvents.BLOCK_GRINDSTONE_USE,0.3F,1);
-                    usedItem.damage(1,player, EquipmentSlot.OFFHAND);
+                    usedItem.damage(1,player,playerEntity -> player.animateDamage(1));
                     return new TypedActionResult<>(ActionResult.SUCCESS, usedItem);
                 }
             }

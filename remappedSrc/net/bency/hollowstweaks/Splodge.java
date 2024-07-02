@@ -1,16 +1,15 @@
 package net.bency.hollowstweaks;
 
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -19,7 +18,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -34,7 +32,8 @@ public class Splodge extends Block {
         super(settings);
     }
 
-    public final Splodge HONEY_SPLODGE = new Splodge(AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK).nonOpaque());
+    public static final Splodge HONEY_SPLODGE = new Splodge
+            (FabricBlockSettings.copyOf(Blocks.HONEY_BLOCK).nonOpaque());
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -62,22 +61,21 @@ public class Splodge extends Block {
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if ((player.getStackInHand(hand).getItem() == Items.GLASS_BOTTLE)){
             world.setBlockState(pos, Blocks.AIR.getDefaultState());
             player.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, 1, 1);
             player.setStackInHand(Hand.MAIN_HAND, new ItemStack(Items.HONEY_BOTTLE));
-            return ItemActionResult.success(true);
+            return ActionResult.SUCCESS;
         }else {
-            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return ActionResult.PASS;
         }
-    }
     }
 
     public static void SplodgeInitialize(){
-        Registry.register(Registries.BLOCK, Identifier.of("hollowtweaks", "honey_splodge"), HONEY_SPLODGE);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks", "honey_splodge"),
-                new BlockItem(HONEY_SPLODGE, new Item.Settings()));
+        Registry.register(Registries.BLOCK, new Identifier("hollowtweaks", "honey_splodge"), HONEY_SPLODGE);
+        Registry.register(Registries.ITEM, new Identifier("hollowtweaks", "honey_splodge"),
+                new BlockItem(HONEY_SPLODGE, new FabricItemSettings()));
         {
             //Procedure for Right-clicking something with a honey bottle.
             UseBlockCallback.EVENT.register(((player, world, hand, hitResult) -> {
@@ -95,3 +93,4 @@ public class Splodge extends Block {
             }));
         } //Place Honey Splodge
     }
+}

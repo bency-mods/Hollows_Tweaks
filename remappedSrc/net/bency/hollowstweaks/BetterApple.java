@@ -2,6 +2,7 @@ package net.bency.hollowstweaks;
 
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.item.Item;
@@ -22,16 +23,20 @@ public class BetterApple extends Item {
         super(settings);
     }
 
-    public static final Item APPLE_1 = new Item(new Item.Settings());
-    public static final Item APPLE_2 = new Item(new Item.Settings());
-    public static final Item APPLE_3 = new Item(new Item.Settings());
-    public static final Item APPLE_CORE = new Item(new Item.Settings());
+    public static final Item APPLE_1 = new Item(new FabricItemSettings());
+    public static final Item APPLE_2 = new Item(new FabricItemSettings());
+    public static final Item APPLE_3 = new Item(new FabricItemSettings());
+    public static final Item APPLE_CORE = new Item(new FabricItemSettings());
 
     public static void BetterAppleInitialize(){
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","apple_1"), APPLE_1);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","apple_2"), APPLE_2);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","apple_3"), APPLE_3);
-        Registry.register(Registries.ITEM, Identifier.of("hollowtweaks","apple_core"), APPLE_CORE);
+        Registry.register(Registries.ITEM, new Identifier
+                ("hollowtweaks","apple_1"), APPLE_1);
+        Registry.register(Registries.ITEM, new Identifier
+                ("hollowtweaks","apple_2"), APPLE_2);
+        Registry.register(Registries.ITEM, new Identifier
+                ("hollowtweaks","apple_3"), APPLE_3);
+        Registry.register(Registries.ITEM, new Identifier
+                ("hollowtweaks","apple_core"), APPLE_CORE);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> {
             content.addAfter(Items.APPLE, APPLE_CORE);

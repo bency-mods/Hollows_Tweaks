@@ -2,19 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "group": "equipment",
   "pattern": [
-    "WoW",
-    "WWW",
+    "   ",
+    "W W",
     " W "
   ],
   "key": {
     "W": {
-      "tag": "hollowtweaks:barkitems"
-    },
-    "o": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:cobblestone"
     }
   },
   "result": {
-    "item": "minecraft:shield"
+    "item": "hollowtweaks:pestle_and_mortar"
   }
 }
