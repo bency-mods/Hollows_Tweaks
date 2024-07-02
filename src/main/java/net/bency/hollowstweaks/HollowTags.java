@@ -10,7 +10,7 @@ public class HollowTags {
         public static TagKey<Item> BARKITEMS = createTag("barkitems");
 
         private static TagKey<Item> createTag(String name){
-            return TagKey.of(RegistryKeys.ITEM, new Identifier("hollowtweaks",name));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of("hollowtweaks",name));
         }
     }
 }
